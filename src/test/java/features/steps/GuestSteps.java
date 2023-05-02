@@ -1,6 +1,5 @@
 package features.steps;
 
-import java.lang.Throwable;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import io.cucumber.java.Before;
@@ -20,7 +19,7 @@ public class GuestSteps {
     }
 
     @Given("The user is on the main screen")
-    public void theUserIsOnTheMainScreen() throws Throwable{
+    public void theUserIsOnTheMainScreen() {
         System.out.println("the user is in the main screen");
         boolean signUp = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/text_sign_in_welcome")).isDisplayed();
         boolean guest = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/txt_use_without_account")).isDisplayed();
@@ -30,7 +29,7 @@ public class GuestSteps {
     }
 
     @When("The user click the Use without account button")
-    public void theUserClickTheUseWithoutAccountButton() throws Throwable {
+    public void theUserClickTheUseWithoutAccountButton() {
         System.out.println("the user click on the button");
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/txt_use_without_account")).click();
     }

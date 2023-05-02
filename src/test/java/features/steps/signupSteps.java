@@ -1,7 +1,5 @@
 package features.steps;
 
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -14,21 +12,10 @@ import utility.Hook;
 import java.util.concurrent.TimeUnit;
 
 public class signupSteps {
-
     private AndroidDriver driver;
-
     public signupSteps() {
+
         this.driver = Hook.getDriver();
-    }
-
-    @Given("The user is in the main screen of the application")
-    public void theUserIsInTheMainScreenOfTheApplication() {
-        System.out.println("the user is in the main screen");
-        boolean signUp = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/text_sign_in_welcome")).isDisplayed();
-        boolean guest = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/txt_use_without_account")).isDisplayed();
-
-        Assert.assertTrue(signUp, "Register button is not displayed");
-        Assert.assertTrue(guest, "Guest Register button is not displayed");
     }
 
     @When("The user click on the Register button")

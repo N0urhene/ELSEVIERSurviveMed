@@ -1,7 +1,8 @@
+@appium
 Feature: Sign Up to the application
 
   Scenario: Register from the main interface
-    Given The user is in the main screen of the application
+    Given The user is on the main screen
     When  The user click on the Register button
     And The user see the terms and conditions screen
     And The user click on the Scroll to accept button three times

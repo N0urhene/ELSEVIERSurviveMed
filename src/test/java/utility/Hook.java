@@ -28,6 +28,7 @@ public class Hook {
     }
     @After
     public void tearDown() {
+
         driver.quit();
     }
     public static AndroidDriver getDriver() {

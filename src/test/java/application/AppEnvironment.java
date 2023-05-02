@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.WebDriver.Timeouts;
 import org.testng.annotations.Test;
 
 public class AppEnvironment {

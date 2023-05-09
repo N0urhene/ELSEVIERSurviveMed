@@ -81,4 +81,6 @@ public class GuestSteps {
         Assert.assertTrue(image, "App image is not displayed");
         Assert.assertTrue(tabBar, " The tabbar is not displayed");
     }
+
+
 }

@@ -1,6 +1,5 @@
 package features.steps;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import io.cucumber.java.en.And;
@@ -128,9 +127,7 @@ public class GuestSteps {
 
     @And("The user scroll down to find the table")
     public void theUserScrollDownToFindTheTable() {
-        MobileElement scrollableElement = (MobileElement) driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/generic_image_content"));
-        String scrollableElementId = scrollableElement.getAccessibleName();
-        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().resourceId(\"" + scrollableElementId + "\")).scrollForward()");    }
+    }
 
     @And("The user click on the table to be opened on full screen")
     public void theUserClickOnTheTableToBeOpenedOnFullScreen() {

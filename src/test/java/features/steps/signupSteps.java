@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 public class signupSteps {
     private AndroidDriver driver;
     public signupSteps() {
-
         this.driver = Hook.getDriver();
     }
 
@@ -36,9 +35,9 @@ public class signupSteps {
     @And("The user switch to the Sign Up field")
     public void theUserSwitchToTheSignUpField() {
         driver.findElement(By.xpath("//android.view.View[@content-desc=\"Sign Up\"]")).click();
-       // driver.findElement(By.id("1-email")).sendKeys("test");
-      //  driver.findElement(By.id("1-password")).sendKeys("test");
-       // driver.findElement(By.id("1-submit")).click();
+        driver.findElement(By.id("1-password")).sendKeys("test");
+        driver.findElement(By.id("1-email")).sendKeys("test");
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button")).click();
     }
 
     @And("The user click on the Sign Up blue button in the bottom of the page")

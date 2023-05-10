@@ -16,12 +16,12 @@ import java.net.MalformedURLException;
 public class searchSteps {
     private AndroidDriver driver;
     public searchSteps() {
+
         this.driver = Hook.getDriver();
     }
 
     @Given("The user is in the home screen")
     public void theUserIsInTheHomeScreen() {
-        basePage.checkTerms();
        boolean tabar = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_tab_bar")).isDisplayed();
 
         Assert.assertTrue(tabar);

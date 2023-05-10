@@ -30,16 +30,17 @@ public class signupSteps {
 
         Assert.assertTrue(urlBar, "not displayed");
         Assert.assertTrue(login, "not displayed");
-
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @And("The user switch to the Sign Up field")
     public void theUserSwitchToTheSignUpField() {
-        driver.findElement(By.id("//android.view.View[@content-desc=\"Sign Up\"]/android.widget.TextView")).click();
+        driver.findElement(By.xpath("//android.view.View[@content-desc=\"Sign Up\"]/android.widget.TextView")).click();
     }
 
-    @And("The user click on the Sign Up green button in the bottom of the page")
-    public void theUserClickOnTheSignUpGreenButtonInTheBottomOfThePage() {
+    @And("The user click on the Sign Up blue button in the bottom of the page")
+    public void theUserClickOnTheSignUpBlueButtonInTheBottomOfThePage() {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.TextView")).click();
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button")).click();
     }
 
@@ -53,24 +54,30 @@ public class signupSteps {
         Assert.assertTrue(passwordError);
     }
 
-    @And("The user enter invalid email address in the address field")
-    public void theUserEnterInvalidEmailAddressInTheAddressField() {
-        driver.findElement(By.id("1-email")).sendKeys("nourhene@soueid");
+    @And("The user enter invalid email address in the address field {string}")
+    public void theUserEnterInvalidEmailAddressInTheAddressField(String nourhenesoueid) {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText")).sendKeys(nourhenesoueid);
+
     }
 
-    @And("The user enter invalid password in the password field")
-    public void theUserEnterInvalidPasswordInThePasswordField() {
-        driver.findElement(By.id("1-password")).sendKeys("nourhenesoueid");
+    @And("The user enter in invalid email {string} and in the password field {string}")
+    public void theUserEnterInInvalidEmailAndInThePasswordField(String email, String pwd) {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText")).sendKeys(email);
+        driver.findElement(By.id("1-password")).sendKeys(pwd);
     }
 
-    @And("The user enter a valid email address")
-    public void theUserEnterAValidEmailAddress() {
-        driver.findElement(By.id("1-email")).sendKeys("nourhenesoueid@gmail.com");
+
+    @And("The use enter in invalid email {string} and in the password field {string}")
+    public void theUseEnterInInvalidEmailAndInThePasswordField(String arg0, String arg1) {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText")).sendKeys(arg0);
+        driver.findElement(By.id("1-password")).sendKeys(arg1);
     }
 
-    @And("The user enter a valid password")
-    public void theUserEnterAValidPassword() {
-        driver.findElement(By.id("1-password")).sendKeys("Nouri12345");
+
+    @And("The user enter a valid email address {string} and a valid password {string}")
+    public void theUserEnterAValidPassword(String n, String b) {
+        driver.findElement(By.id("1-email")).sendKeys(n);
+        driver.findElement(By.id("1-password")).sendKeys(b);
     }
 
     @Then("The user should see a successful message")
@@ -104,4 +111,5 @@ public class signupSteps {
     @And("The user should be redirected to the login web page")
     public void theUserShouldBeRedirectedToTheLoginWebPage() {
     }
+
 }

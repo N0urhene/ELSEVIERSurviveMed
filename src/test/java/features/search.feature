@@ -1,4 +1,4 @@
-@appium
+@Test
 Feature: Search
 
   Scenario: Do a search

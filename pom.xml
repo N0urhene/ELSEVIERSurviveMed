@@ -93,12 +93,6 @@
             <version>6.14.3</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.appium</groupId>
-            <artifactId>java-client</artifactId>
-            <version>7.6.0</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
 </project>

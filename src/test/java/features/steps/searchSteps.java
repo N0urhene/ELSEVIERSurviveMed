@@ -7,7 +7,6 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import pages.basePage;
 import utility.Hook;
 import application.AppEnvironment;
 import java.net.MalformedURLException;
@@ -21,10 +20,7 @@ public class searchSteps {
 
     @Given("The user is in the home screen")
     public void theUserIsInTheHomeScreen() {
-        basePage.checkTerms();
-       boolean tabar = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_tab_bar")).isDisplayed();
-
-        Assert.assertTrue(tabar);
+        Hook.checkTerms();
     }
 
     @When("The user click on the tabBar search icon")
@@ -35,7 +31,6 @@ public class searchSteps {
     @And("The user is on the search screen")
     public void theUserIsOnTheSearchScreen() {
         boolean searchBar = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/edit_text_search_home")).isDisplayed();
-
         Assert.assertTrue(searchBar);
     }
 

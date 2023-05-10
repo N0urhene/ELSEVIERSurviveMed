@@ -8,7 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
+import org.openqa.selenium.WebDriver.Timeouts;
 import org.testng.annotations.Test;
 
 public class AppEnvironment {
@@ -22,7 +22,7 @@ public class AppEnvironment {
         dc.setCapability(MobileCapabilityType.APP, "C:\\\\Users\\\\Nourhene\\\\Downloads\\\\ElsevierSurviveMedUK_prod.apk");
         URL url =new URL("http://127.0.0.1:4723/wd/hub");
         AndroidDriver driver= new AndroidDriver(url,dc);
-        driver .manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/txt_use_without_account")).click();
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_scroll_continue")).click();

@@ -7,16 +7,11 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import pages.basePage;
 import utility.Hook;
-import application.AppEnvironment;
-import java.net.MalformedURLException;
-
 
 public class searchSteps {
     private AndroidDriver driver;
     public searchSteps() {
-
         this.driver = Hook.getDriver();
     }
 

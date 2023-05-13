@@ -28,6 +28,7 @@ Feature: Sign Up to the application
     Then The user should see a successful message
     And The user should receive a verification email
 
+
   Scenario: Activate account
     Given The user is in his mailbox
     When The user click on the validation email received in his mailbox

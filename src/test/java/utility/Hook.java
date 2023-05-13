@@ -35,6 +35,11 @@ public class Hook {
         driver.quit();
     }
 
+    public static void doubleClick(AndroidDriver driver, WebElement element) {
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(ElementOption.element(element)).waitAction().tap(ElementOption.element(element)).perform();
+    }
+
     public static AndroidDriver getDriver() {
 
         return driver;

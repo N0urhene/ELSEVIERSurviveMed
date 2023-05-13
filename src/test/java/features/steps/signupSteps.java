@@ -1,5 +1,6 @@
 package features.steps;
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -33,22 +34,19 @@ public class signupSteps {
     }
 
     @And("The user switch to the Sign Up field")
-    public void theUserSwitchToTheSignUpField() {
+    public void theUserSwitchToTheSignUpField() throws InterruptedException {
         driver.findElement(By.xpath("//android.view.View[@content-desc=\"Sign Up\"]")).click();
-       // driver.findElement(By.id("1-password")).sendKeys("test");
-      //  driver.findElement(By.id("1-email")).sendKeys("test");
-        //driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button")).click();
+        Thread.sleep(3000);
     }
 
     @And("The user click on the Sign Up blue button in the bottom of the page")
-    public void theUserClickOnTheSignUpBlueButtonInTheBottomOfThePage() {
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.widget.TextView")).click();
-        driver.findElement(By.id("1-submit")).click();
+    public void theUserClickOnTheSignUpBlueButtonInTheBottomOfThePage() throws InterruptedException {
+       driver.findElement(By.xpath("//android.widget.Button[@resource-id =\"1-submit\"]")).click();
+        //driver.findElement(MobileBy.AndroidUIAutomator("resource-id(\"1-submit\")")).click();
     }
 
     @And("The user receives an error messages under the fields with reddening of the field frame")
     public void theUserReceivesAnErrorMessagesUnderTheFieldsWithReddeningOfTheFieldFrame() {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         boolean emailError = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[2]/android.view.View[2]/android.widget.TextView")).isDisplayed();
         boolean passwordError = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View[2]/android.widget.TextView")).isDisplayed();
 

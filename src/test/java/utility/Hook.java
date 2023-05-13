@@ -6,7 +6,6 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
@@ -25,7 +24,7 @@ public class Hook {
         cap.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
         cap.setCapability(MobileCapabilityType.APP, "C:\\\\Users\\\\Nourhene\\\\Documents\\\\ElsevierSurviveMedUK_prod.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        driver = new AndroidDriver(url, cap);
+        AndroidDriver driver = new AndroidDriver(url, cap);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 

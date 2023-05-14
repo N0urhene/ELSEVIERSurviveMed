@@ -1,7 +1,6 @@
 @appium
 Feature: Guest sign up to the application
 
-  Background:
   Scenario: Sign up from the main interface
     Given The user is on the main screen
     When The user click the Use without account button

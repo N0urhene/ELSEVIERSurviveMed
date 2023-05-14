@@ -72,11 +72,12 @@ public class GuestSteps {
     }
 
     @Then("The user should see the home screen")
-    public void theUserShouldSeeTheHomeScreen() {
+    public void theUserShouldSeeTheHomeScreen() throws InterruptedException {
         boolean image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/imageView2")).isDisplayed();
         boolean tabBar = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_tab_bar")).isDisplayed();
 
         Assert.assertTrue(image, "App image is not displayed");
         Assert.assertTrue(tabBar, " The tabbar is not displayed");
+        Thread.sleep(5000);
     }
 }

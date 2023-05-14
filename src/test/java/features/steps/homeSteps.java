@@ -10,24 +10,32 @@ import org.testng.Assert;
 import utility.Hook;
 
 public class homeSteps {
-
     private AndroidDriver driver;
     public homeSteps(){
         this.driver = Hook.getDriver();
     }
 
     @Given("The user open the Anatomy item")
-    public void theUserOpenTheAnatomyItem() {
+    public void theUserOpenTheAnatomyItem() throws InterruptedException {
+        boolean image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/imageView2")).isDisplayed();
+        boolean tabBar = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_tab_bar")).isDisplayed();
+
+        Assert.assertTrue(image);
+        Assert.assertTrue(tabBar);
+
+        Thread.sleep(5000);
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup")).click();
     }
 
     @When("The user choose the first element of the screen list")
-    public void theUserChooseTheFirstElementOfTheScreenList() {
+    public void theUserChooseTheFirstElementOfTheScreenList() throws InterruptedException {
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView")).click();
+        Thread.sleep(3000);
     }
 
     @And("The user is in the element screen")
-    public void theUserIsInTheElementScreen() {
+    public void theUserIsInTheElementScreen() throws InterruptedException {
+        Thread.sleep(3000);
         boolean screenTitle = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/title_anatomy")).isDisplayed();
         boolean titlePic = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/title_picture_content")).isDisplayed();
 
@@ -36,20 +44,24 @@ public class homeSteps {
     }
 
     @And("The user click on the figure to be opened on full screen")
-    public void theUserClickOnTheFigureToBeOpenedOnFullScreen() {
+    public void theUserClickOnTheFigureToBeOpenedOnFullScreen() throws InterruptedException {
+        Thread.sleep(3000);
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/imgItem")).click();
+        Thread.sleep(3000);
     }
 
     @And("The user double click the figure to zoom_in")
-    public void theUserDoubleClickTheFigureToZoom_in() {
+    public void theUserDoubleClickTheFigureToZoom_in() throws InterruptedException {
         WebElement image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
         Hook.doubleClick(driver, image);
+        Thread.sleep(3000);
     }
 
     @And("The user double click the figure to zoom_out")
-    public void theUserDoubleClickTheFigureToZoom_out() {
+    public void theUserDoubleClickTheFigureToZoom_out() throws InterruptedException {
         WebElement image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
         Hook.doubleClick(driver, image);
+        Thread.sleep(3000);
     }
 
     @And("The user click on the exit button to quit the figure")

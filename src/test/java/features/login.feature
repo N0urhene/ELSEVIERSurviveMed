@@ -10,9 +10,9 @@ Feature: Login to the application
     And The user accept the terms condition
     And The user accept the privacy policy
     And The user click on the Continue button
-    And The user is redirected to the inscription web page
+    Then The user is redirected to the inscription web page
 
-  Scenario 1: Log in with blank fields
+  Scenario : Log in to the application
     Given The user is in the login web page
     When The user click on the CONNEXION button
     And The user should see an error message

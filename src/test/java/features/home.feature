@@ -1,3 +1,4 @@
+@appium
 Feature: Discover Home screen items
 
   Background:
@@ -11,7 +12,7 @@ Feature: Discover Home screen items
     And The user click on the Continue button
     Then The user should see the home screen
 
-  Scenario: Scenario: Home screen first item: ANATOMY THE BARE BONES
+  Scenario: Home screen first item: ANATOMY THE BARE BONES
     Given The user open the Anatomy item
     When The user choose the first element of the screen list
     And The user is in the element screen

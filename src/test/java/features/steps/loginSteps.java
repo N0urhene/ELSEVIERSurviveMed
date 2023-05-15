@@ -12,6 +12,7 @@ import utility.Hook;
 public class loginSteps {
     private AndroidDriver driver;
     public loginSteps() {
+
         this.driver = Hook.getDriver();
     }
 
@@ -81,3 +82,4 @@ public class loginSteps {
         Assert.assertTrue(homeTitle);
     }
 }
+

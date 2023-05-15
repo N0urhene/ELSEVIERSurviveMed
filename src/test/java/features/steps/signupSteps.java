@@ -1,6 +1,5 @@
 package features.steps;
 
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -9,7 +8,6 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import utility.Hook;
-
 import java.util.concurrent.TimeUnit;
 
 public class signupSteps {

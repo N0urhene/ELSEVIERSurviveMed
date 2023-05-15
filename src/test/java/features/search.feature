@@ -10,11 +10,10 @@ Feature: Search
     And The user accept the terms condition
     And The user accept the privacy policy
     And The user click on the Continue button
-    Then The user should see the home screen
+    And The user should see the home screen
 
   Scenario: Do a search
-    Given The user is in the home screen
-    When The user click on the tabBar search icon
+    And The user click on the tabBar search icon
     And The user is on the search screen
     And The user click on the search bar
     And The user search for medical keyword

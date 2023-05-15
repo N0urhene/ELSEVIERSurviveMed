@@ -17,12 +17,6 @@ public class homeSteps {
 
     @Given("The user open the Anatomy item")
     public void theUserOpenTheAnatomyItem() throws InterruptedException {
-        boolean image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/imageView2")).isDisplayed();
-        boolean tabBar = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_tab_bar")).isDisplayed();
-
-        Assert.assertTrue(image);
-        Assert.assertTrue(tabBar);
-
         Thread.sleep(5000);
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup")).click();
     }

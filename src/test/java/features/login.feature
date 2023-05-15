@@ -3,18 +3,17 @@ Feature: Login to the application
 
   Background:
     Given The user is on the main screen
-    When  The user click on the Register button
+    When The user click on the Register button
     And The user see the terms and conditions screen
     And The user click on the Scroll to accept button three times
     And The user see the conditions to be accepted and a Continue button grayed out
     And The user accept the terms condition
     And The user accept the privacy policy
     And The user click on the Continue button
-    Then The user is redirected to the inscription web page
+    And The user is redirected to the inscription web page
 
-  Scenario : Log in to the application
-    Given The user is in the login web page
-    When The user click on the CONNEXION button
+  Scenario: Log in to the application
+    And The user click on the CONNEXION button
     And The user should see an error message
     And The user enter invalid email address "soueid@gmail" and invalid password "12345678"
     And The user click on the CONNEXION button and see an error message

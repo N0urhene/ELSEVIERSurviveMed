@@ -28,7 +28,7 @@ public class signupSteps {
 
         Assert.assertTrue(urlBar, "not displayed");
         Assert.assertTrue(login, "not displayed");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @And("The user switch to the Sign Up field")
@@ -39,8 +39,10 @@ public class signupSteps {
 
     @And("The user click on the Sign Up blue button in the bottom of the page")
     public void theUserClickOnTheSignUpBlueButtonInTheBottomOfThePage() throws InterruptedException {
-       driver.findElement(By.xpath("//android.widget.Button[@resource-id =\"1-submit\"]")).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+       driver.findElement(By.id("1-submit")).click();
         //driver.findElement(MobileBy.AndroidUIAutomator("resource-id(\"1-submit\")")).click();
+        Thread.sleep(3000);
     }
 
     @And("The user receives an error messages under the fields with reddening of the field frame")

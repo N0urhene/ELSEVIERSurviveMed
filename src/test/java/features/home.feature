@@ -44,8 +44,14 @@ Feature: Discover Home screen items
     And The user click on the first element of the list
     And The user double-click the image to zoom-in
     And The user double-click the image to zoom-out
-    And The user click on More to see the rest of the image decription
-    And The user click on the green button in the buttom of the page to hide the image labels
+    And The user click on More to see the rest of the image description
+    And The user click on the green button in the bottom of the page to hide the image labels
     And The user user swipe right to move to the next elements of the list
     And The user click on the exit button in the top
     Then The user click on the step-back button to back to the home screen
+
+  Scenario: Home screen third item: LABORATORY VALUES
+    And The user click to open the item
+    And a pop up message appear
+    And The user click on Not now
+    Then The user should see the home screen

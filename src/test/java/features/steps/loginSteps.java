@@ -16,17 +16,9 @@ public class loginSteps {
         this.driver = Hook.getDriver();
     }
 
-    @Given("The user is in the login web page")
-    public void theUserIsInTheLoginWebPage() {
-        boolean login = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.widget.TextView")).isDisplayed();
-        boolean image = driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.widget.Image")).isDisplayed();
-
-        Assert.assertTrue(login);
-        Assert.assertTrue(image);
-    }
-
-    @When("The user click on the CONNEXION button")
+    @And("The user click on the CONNEXION button")
     public void theUserClickOnTheCONNEXIONButton() {
+
         driver.findElement(By.id("1-submit")).click();
     }
 

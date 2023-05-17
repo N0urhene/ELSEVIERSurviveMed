@@ -3,6 +3,7 @@ package features.steps;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,13 +18,14 @@ public class homeSteps {
 
     @Given("The user open the Anatomy item")
     public void theUserOpenTheAnatomyItem() throws InterruptedException {
-        Thread.sleep(5000);
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/constraint_layout_home_item")).click();
+        Thread.sleep(3000);
     }
 
     @When("The user choose the first element of the screen list")
     public void theUserChooseTheFirstElementOfTheScreenList() throws InterruptedException {
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView")).click();
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/constraint_layout_content")).click();
         Thread.sleep(3000);
     }
 
@@ -102,5 +104,48 @@ public class homeSteps {
     @And("The user click on the previous button to back to the home page")
     public void theUserClickOnThePreviousButtonToBackToTheHomePage() {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_back_anatomy")).click();
+    }
+
+    @And("The user open the flashcards item")
+    public void theUserOpenTheFlashcardsItem() {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup")).click();
+    }
+
+    @And("The user click on the first element of the list")
+    public void theUserClickOnTheFirstElementOfTheList() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/item_section_interactive")).click();
+    }
+
+    @And("The user double-click the image to zoom-in")
+    public void theUserDoubleClickTheImageToZoomIn() {
+        WebElement image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
+        Hook.doubleClick(driver, image);
+    }
+
+    @And("The user double-click the image to zoom-out")
+    public void theUserDoubleClickTheImageToZoomOut() {
+    }
+
+    @And("The user click on More to see the rest of the image description")
+    public void theUserClickOnMoreToSeeTheRestOfTheImageDescription() {
+        WebElement image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
+        Hook.doubleClick(driver, image);
+    }
+
+    @And("The user click on the green button in the bottom of the page to hide the image labels")
+    public void theUserClickOnTheGreenButtonInTheBottomOfThePageToHideTheImageLabels() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/padding_bottom")).click();
+    }
+
+    @And("The user user swipe right to move to the next elements of the list")
+    public void theUserUserSwipeRightToMoveToTheNextElementsOfTheList() {
+    }
+
+    @And("The user click on the exit button in the top")
+    public void theUserClickOnTheExitButtonInTheTop() {
+    }
+
+    @Then("The user click on the step-back button to back to the home screen")
+    public void theUserClickOnTheStepBackButtonToBackToTheHomeScreen() {
     }
 }

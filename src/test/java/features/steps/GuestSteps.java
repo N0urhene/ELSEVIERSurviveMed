@@ -17,11 +17,10 @@ public class GuestSteps {
 
     @Given("The user is on the main screen")
     public void theUserIsOnTheMainScreen() {
-        boolean signUp = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/text_sign_in_welcome")).isDisplayed();
-        boolean guest = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/txt_use_without_account")).isDisplayed();
-
-        Assert.assertTrue(signUp, "Register button is not displayed");
-        Assert.assertTrue(guest, "Guest Register button is not displayed");
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/img_logo_app")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/img_visual_welcome")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_signin_welcome")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/txt_use_without_account")).isDisplayed());
     }
 
     @When("The user click the Use without account button")
@@ -78,6 +77,6 @@ public class GuestSteps {
 
         Assert.assertTrue(image, "App image is not displayed");
         Assert.assertTrue(tabBar, " The tabbar is not displayed");
-        Thread.sleep(5000);
+        Thread.sleep(3000);
     }
 }

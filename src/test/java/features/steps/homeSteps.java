@@ -16,14 +16,14 @@ public class homeSteps {
         this.driver = Hook.getDriver();
     }
 
-    @Given("The user open the Anatomy item")
+    @And("The user open the Anatomy item")
     public void theUserOpenTheAnatomyItem() throws InterruptedException {
-        Thread.sleep(3000);
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/home_nav")).click();
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/constraint_layout_home_item")).click();
         Thread.sleep(3000);
     }
 
-    @When("The user choose the first element of the screen list")
+    @And("The user choose the first element of the screen list")
     public void theUserChooseTheFirstElementOfTheScreenList() throws InterruptedException {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/constraint_layout_content")).click();
         Thread.sleep(3000);
@@ -41,7 +41,6 @@ public class homeSteps {
 
     @And("The user click on the figure to be opened on full screen")
     public void theUserClickOnTheFigureToBeOpenedOnFullScreen() throws InterruptedException {
-        Thread.sleep(3000);
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/imgItem")).click();
         Thread.sleep(3000);
     }

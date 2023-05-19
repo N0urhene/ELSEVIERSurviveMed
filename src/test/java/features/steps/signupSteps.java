@@ -1,5 +1,6 @@
 package features.steps;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -39,9 +40,9 @@ public class signupSteps {
 
     @And("The user click on the Sign Up blue button in the bottom of the page")
     public void theUserClickOnTheSignUpBlueButtonInTheBottomOfThePage() throws InterruptedException {
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-       driver.findElement(By.id("1-submit")).click();
-        //driver.findElement(MobileBy.AndroidUIAutomator("resource-id(\"1-submit\")")).click();
+        driver.findElement(
+                new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"+".scrollIntoView(new UiSelector()" + ".textMatches(\""+"Sign Up >" + "\").instance(0))"));
+        driver.findElement(By.id("1-submit")).click();
         Thread.sleep(3000);
     }
 
@@ -56,7 +57,7 @@ public class signupSteps {
 
     @And("The user enter invalid email address in the address field {string}")
     public void theUserEnterInvalidEmailAddressInTheAddressField(String nourhenesoueid) {
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText")).sendKeys(nourhenesoueid);
+        driver.findElement(By.id("1-email")).sendKeys(nourhenesoueid);
 
     }
 

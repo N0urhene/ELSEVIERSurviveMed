@@ -12,6 +12,8 @@ Feature: Sign Up to the application
     And The user click on the Continue button
     And The user is redirected to the inscription web page
     And The user switch to the Sign Up field
+    And The user click on the Sign Up blue button in the bottom of the page
+    And The user receives an error messages under the fields with reddening of the field frame
     And The user enter invalid email address in the address field "nourhenesoueid"
     And The user click on the Sign Up blue button in the bottom of the page
     And The user receives an error messages under the fields with reddening of the field frame

@@ -24,9 +24,9 @@ public class searchSteps {
 
     @When("The user click on the tabBar search icon")
     public void theUserClickOnTheTabBarSearchIcon() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/search_nav")).click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
     }
 
     @And("The user is on the search screen")
@@ -38,7 +38,7 @@ public class searchSteps {
 
     @When("The user click on the search bar")
     public void theUserClickOnTheSearchBar() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/edit_text_search_home")).click();
     }
 

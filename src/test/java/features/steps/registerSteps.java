@@ -14,6 +14,7 @@ public class registerSteps {
 
     @When("The user enter a valid email address and a valid password")
     public void the_user_enter_a_valid_email_address_and_a_valid_password() {
+        driver.findElement(By.id("1-email")).click();
         driver.findElement(By.id("1-email")).sendKeys("soueidnourhene@gmail.com");
         driver.findElement(By.id("1-password")).sendKeys("Nouri1234");
     }

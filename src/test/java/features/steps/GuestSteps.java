@@ -24,9 +24,10 @@ public class GuestSteps {
     }
 
     @When("The user click the Use without account button")
-    public void theUserClickTheUseWithoutAccountButton() {
+    public void theUserClickTheUseWithoutAccountButton() throws InterruptedException {
         System.out.println("the user click on the button");
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/txt_use_without_account")).click();
+        Thread.sleep(3000);
     }
 
     @And("The user see the terms and conditions screen")
@@ -37,22 +38,18 @@ public class GuestSteps {
     }
 
     @And("The user click on the Scroll to accept button three times")
-    public void theUserClickOnTheScrollToAcceptButtonThreeTimes() {
+    public void theUserClickOnTheScrollToAcceptButtonThreeTimes() throws InterruptedException {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_scroll_continue")).click();
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_scroll_continue")).click();
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_scroll_continue")).click();
+        Thread.sleep(3000);
     }
 
     @And("The user see the conditions to be accepted and a Continue button grayed out")
     public void theUserSeeTheConditionsToBeAcceptedAndAContinueButtonGrayedOut() {
-       boolean check_terms = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/checkbox_terms_conditions")).isDisplayed();
-       boolean check_privacy = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/checkbox_privacy_policy")).isDisplayed();
-        boolean check_btn = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/text_continue_scroll")).isDisplayed();
-
-        Assert.assertTrue(check_terms, "Terms and conditions checkbox is not displayed");
-        Assert.assertTrue(check_privacy, "Privacy Policy checkbox is not displayed");
-        Assert.assertTrue(check_btn, "Continue button is not displayed");
-
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/checkbox_terms_conditions")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/checkbox_privacy_policy")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/text_continue_scroll")).isDisplayed());
     }
 
     @And("The user accept the terms condition")
@@ -61,22 +58,21 @@ public class GuestSteps {
     }
 
     @And("The user accept the privacy policy")
-    public void theUserAcceptThePrivacyPolicy() {
+    public void theUserAcceptThePrivacyPolicy() throws InterruptedException {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/checkbox_privacy_policy")).click();
+        Thread.sleep(2000);
     }
 
     @And("The user click on the Continue button")
-    public void theUserClickOnTheContinueButton() {
+    public void theUserClickOnTheContinueButton() throws InterruptedException {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/text_continue_scroll")).click();
+        //Thread.sleep(3000);
     }
 
     @Then("The user should see the home screen")
     public void theUserShouldSeeTheHomeScreen() throws InterruptedException {
-        boolean image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/imageView2")).isDisplayed();
-        boolean tabBar = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_tab_bar")).isDisplayed();
-
-        Assert.assertTrue(image, "App image is not displayed");
-        Assert.assertTrue(tabBar, " The tabbar is not displayed");
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/imageView2")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_tab_bar")).isDisplayed());
         Thread.sleep(3000);
     }
 }

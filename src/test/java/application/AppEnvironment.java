@@ -19,6 +19,8 @@ public class AppEnvironment {
         dc.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         dc.setCapability(MobileCapabilityType.PLATFORM_VERSION,"13");
         dc.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+        dc.setCapability("unicodeKeyboard", true);
+        dc.setCapability("resetKeyboard", true);
         dc.setCapability(MobileCapabilityType.APP, "C:\\\\Users\\\\Nourhene\\\\Documents\\\\ElsevierSurviveMedUK_prod.apk");
         URL url =new URL("http://127.0.0.1:4723/wd/hub");
         AndroidDriver driver= new AndroidDriver(url,dc);

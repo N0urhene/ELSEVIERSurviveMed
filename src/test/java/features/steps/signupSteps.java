@@ -35,15 +35,13 @@ public class signupSteps {
     @And("The user switch to the Sign Up field")
     public void theUserSwitchToTheSignUpField() throws InterruptedException {
         driver.findElement(By.xpath("//android.view.View[@content-desc=\"Sign Up\"]")).click();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
     }
 
     @And("The user click on the Sign Up blue button in the bottom of the page")
     public void theUserClickOnTheSignUpBlueButtonInTheBottomOfThePage() throws InterruptedException {
-        driver.findElement(
-                new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"+".scrollIntoView(new UiSelector()" + ".textMatches(\""+"Sign Up >" + "\").instance(0))"));
+       // driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"+".scrollIntoView(new UiSelector()" + ".textMatches(\""+"Sign Up >" + "\").instance(0))"));
         driver.findElement(By.id("1-submit")).click();
-        Thread.sleep(3000);
     }
 
     @And("The user receives an error messages under the fields with reddening of the field frame")

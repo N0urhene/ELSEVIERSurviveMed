@@ -65,7 +65,7 @@ public class homeSteps {
 
     @And("The user scroll down to find the table")
     public void theUserScrollDownToFindTheTable() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"+".scrollIntoView(new UiSelector().resourceIdMatches(\"com.elsevier.education.SurviveMedApp:id/generic_image_content\"))"));
         //Hook.scroll();
     }
@@ -96,13 +96,15 @@ public class homeSteps {
     }
 
     @And("The user click on the previous button to back to list")
-    public void theUserClickOnThePreviousButtonToBackToList() {
+    public void theUserClickOnThePreviousButtonToBackToList() throws InterruptedException {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_back_anatomy"));
+        Thread.sleep(2000);
     }
 
     @And("The user choose the second element of the screen list")
-    public void theUserChooseTheSecondElementOfTheScreenList() {
+    public void theUserChooseTheSecondElementOfTheScreenList() throws InterruptedException {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/title_section_anatomy"));
+        Thread.sleep(2000);
     }
 
     @And("The user click on the previous button to back to the home page")
@@ -128,9 +130,10 @@ public class homeSteps {
     }
 
     @And("The user double-click the image to zoom-out")
-    public void theUserDoubleClickTheImageToZoomOut() {
+    public void theUserDoubleClickTheImageToZoomOut() throws InterruptedException {
         WebElement image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
         Hook.doubleClick(driver, image);
+        Thread.sleep(1000);
     }
 
     @And("The user click on More to see the rest of the image description")
@@ -141,11 +144,12 @@ public class homeSteps {
 
     @And("The user click on the green button in the bottom of the page to hide the image labels")
     public void theUserClickOnTheGreenButtonInTheBottomOfThePageToHideTheImageLabels() {
-        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/padding_bottom")).click();
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/switch_caption")).click();
     }
 
     @And("The user user swipe right to move to the next elements of the list")
-    public void theUserUserSwipeRightToMoveToTheNextElementsOfTheList() {
+    public void theUserUserSwipeRightToMoveToTheNextElementsOfTheList() throws InterruptedException {
+        Thread.sleep(2000);
         Hook.swipeHorizontal();
     }
 

@@ -28,6 +28,7 @@ public class Hook {
 
     @Before("@appium")
     public void OpenSurviveMedApp() throws MalformedURLException, InterruptedException {
+        //System.out.println("INSIDE OPEN SERVICE APP");
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium");
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
@@ -38,6 +39,7 @@ public class Hook {
         cap.setCapability(MobileCapabilityType.APP, "C:\\\\Users\\\\Nourhene\\\\Documents\\\\ElsevierSurviveMedUK_prod.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, cap);
+        //System.out.println("Hook line 41; driver " + driver);
         driver .manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         startVideoRecording();
     }
@@ -109,6 +111,7 @@ public class Hook {
     }
 
     public static AndroidDriver getDriver() {
+        System.out.println("get driver called inside hook " + driver);
         return driver;
     }
 

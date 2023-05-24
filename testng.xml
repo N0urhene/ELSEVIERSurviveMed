@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/Nourhene/IdeaProjects/ELSEVIERSurviveMed">
         <classes>
-            <class name="Runners.Run">
+            <class name="Runners.Runner">
             </class>
         </classes>
     </test>

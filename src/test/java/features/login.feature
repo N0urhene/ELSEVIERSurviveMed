@@ -25,4 +25,19 @@ Feature: Login to the application
     And The user click on the CONNEXION button and see an error message
     And The user enter correct email address "soueidnourhene@gmail.com" and correct password "Nour1234"
     And The user click on the CONNEXION button
+    And The user is successfully connected and redirected to Complete your profile screen
+    And The user enter his first name and last name
+    And The user click on the Next button
+    And The user is in the login welcome screen
+    And The user click on the I am element to select a role
+    And The user is on the I am list
+    And The user click on the first choice a medical student
+    And The user click on the second element i go to school in
+    And The user scroll to choose his country
+    And The user click on the next element
+    And The user choose his university
+    And The user click on the last element My year of study is
+    And The user choose his study year
+    And The user click on the Next button
+    And The user is in the welcome screen
     Then The user should be logged in to the home screen

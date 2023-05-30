@@ -17,12 +17,12 @@ Feature: Sign Up to the application
     And The user enter invalid email address in the address field "nourhenesoueid"
     And The user click on the Sign Up blue button in the bottom of the page
     And The user receives an error messages under the fields with reddening of the field frame
-    And The user enter in invalid email "nourhene.soueid@gmail" and in the password field "nour"
+    And The use enter in invalid email "nourhenesoueid.gmail" and in the password field "Nourhene"
     And The user click on the Sign Up blue button in the bottom of the page
     And The user receives an error messages under the fields with reddening of the field frame
-    And The use enter in invalid email "nourhenesoueid.gmail.com" and in the password field "Nourhene"
+    And The user enter in invalid email "nourhene.sd@gmail" and in the password field "nourHene1"
     And The user click on the Sign Up blue button in the bottom of the page
-    And The user receives an error messages under the fields with reddening of the field frame
+    And The user receives a red error message
     And The user enter a valid email address "soueidnourhene@gmail.com" and a valid password "Nour1234"
     And The user click on the Sign Up blue button in the bottom of the page
     Then The user should see a successful message

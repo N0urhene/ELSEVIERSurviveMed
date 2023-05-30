@@ -66,8 +66,7 @@ public class homeSteps {
     @And("The user scroll down to find the table")
     public void theUserScrollDownToFindTheTable() throws InterruptedException {
         Thread.sleep(2000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"+".scrollIntoView(new UiSelector().resourceIdMatches(\"com.elsevier.education.SurviveMedApp:id/generic_image_content\"))"));
-        //Hook.scroll();
+        Hook.scroll();
     }
 
     @And("The user click on the table to be opened on full screen")
@@ -90,20 +89,20 @@ public class homeSteps {
 
     @And("The user click on the exit button to quit the table")
     public void theUserClickOnTheExitButtonToQuitTheTable() throws InterruptedException {
-        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/constraint_layout_full_image")).click();
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen")).click();
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/close_full_image")).click();
         Thread.sleep(2000);
     }
 
     @And("The user click on the previous button to back to list")
     public void theUserClickOnThePreviousButtonToBackToList() throws InterruptedException {
-        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_back_anatomy"));
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ImageView")).click();
         Thread.sleep(2000);
     }
 
     @And("The user choose the second element of the screen list")
     public void theUserChooseTheSecondElementOfTheScreenList() throws InterruptedException {
-        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/title_section_anatomy"));
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")).click();
         Thread.sleep(2000);
     }
 
@@ -161,5 +160,23 @@ public class homeSteps {
     @Then("The user click on the step-back button to back to the home screen")
     public void theUserClickOnTheStepBackButtonToBackToTheHomeScreen() {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_back_toolbar")).click();
+    }
+
+    @And("The user click to open the item")
+    public void theUserClickToOpenTheItem() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/home_nav")).click();
+        //Hook.scroll();
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"+".scrollIntoView(new UiSelector().textContains(\"Labaratory values can vary. Please double-check with your local laboratory\"))"));
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup")).click();
+    }
+
+    @And("a pop up message appear")
+    public void aPopUpMessageAppear() {
+        Assert.assertTrue(driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup")).isDisplayed());
+    }
+
+    @And("The user click on Not now")
+    public void theUserClickOnNotNow() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/button_cancel")).click();
     }
 }

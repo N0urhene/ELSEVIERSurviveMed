@@ -1,6 +1,17 @@
 @appium @done
 Feature: Discover Home screen items
 
+  Background:
+    Given The user is on the main screen
+    When The user click the Use without account button
+    And The user see the terms and conditions screen
+    And The user click on the Scroll to accept button three times
+    And The user see the conditions to be accepted and a Continue button grayed out
+    And The user accept the terms condition
+    And The user accept the privacy policy
+    And The user click on the Continue button
+    And The user should see the home screen
+
   Scenario: Home screen first item: ANATOMY THE BARE BONES
     And The user open the Anatomy item
     And The user choose the first element of the screen list

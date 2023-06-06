@@ -82,14 +82,7 @@ public class loginSteps {
 
     @And("The user click on the Next button")
     public void theUserClickOnTheNextButton() {
-        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/next_button")).click();
-    }
-
-    @Then("The user should be logged in to the home screen")
-    public void theUserShouldBeLoggedInToTheHomeScreen() {
-        boolean homeTitle = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/text_login_title")).isDisplayed();
-
-        Assert.assertTrue(homeTitle);
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup")).click();
     }
 
     @And("The user is in the login welcome screen")
@@ -114,36 +107,48 @@ public class loginSteps {
 
     @And("The user click on the second element i go to school in")
     public void theUserClickOnTheSecondElementIGoToSchoolIn() {
-        
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")).click();
     }
 
     @And("The user scroll to choose his country")
     public void theUserScrollToChooseHisCountry() {
-        
+        Hook.scroll();
+        driver.findElement(By.id("android:id/search_src_text")).click();
+        driver.findElement(By.id("android:id/search_src_text")).sendKeys("tunisia");
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/constraint_layout_content")).click();
     }
 
     @And("The user click on the next element")
     public void theUserClickOnTheNextElement() {
-        
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]")).click();;
     }
 
     @And("The user choose his university")
     public void theUserChooseHisUniversity() {
-        
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")).click();;
     }
 
     @And("The user click on the last element My year of study is")
     public void theUserClickOnTheLastElementMyYearOfStudyIs() {
-        
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[4]")).click();
     }
 
     @And("The user choose his study year")
     public void theUserChooseHisStudyYear() {
-        
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]")).click();
     }
 
     @And("The user is in the welcome screen")
     public void theUserIsInTheWelcomeScreen() {
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/logo_opt_in")).isDisplayed());
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/checkbox_optin_register")).click();
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/checkbox_optin_register")).click();
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_btn_next_opt_in")).click();
+    }
+
+    @Then("The user should be logged in to the home screen")
+    public void theUserShouldBeLoggedInToTheHomeScreen() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_next_personalisation")).click();
     }
 }
 

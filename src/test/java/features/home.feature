@@ -54,3 +54,43 @@ Feature: Discover Home screen items
     And a pop up message appear
     And The user click on Not now
     Then The user should see the home screen
+
+  Scenario: Home screen forth item: MEDICAL DICTIONARY
+    And The user cilck on the item
+    And The user swipe right the alphabetic list
+    And The user scroll down to see all the informations
+    And The user choose the letter B and click on it
+    And The user should see all the informations starting with B
+    And The user long-click on the first information
+    And A pop up appears in the buttom of the page
+    And The user click on Add to favorites
+    And The user should see a message Added to favorites
+    Then The user click on the top button to back to home screen
+
+  Scenario: Home screen fifth item: GLOSSARIES BY SUBJECT
+    And The user click to open the glossaries by subject item
+    And The user click on the Anatomy element
+    And The user should be in the Anatomy dictionary
+    And The user swipe the letters list to choose a letter
+    And The user scroll the informations
+    And The user can favor his important informations
+    And The user click to back to the list
+    Then The user click on the top button to back to home screen
+
+  Scenario: Home screen ESSENTIAL LATIN item
+    And The user click to open the essential latin item
+    And The user scroll down to see the results
+    And The user click on the third information to add it to the favorites
+    Then The user click back to home screen
+
+  Scenario: Home screen SURVIVAL TIPS
+    And The user click to open the survival tips item
+    And The user should see a list of tips
+    And The user click on the first tip card
+    And The user can scroll to read the rest of the tip
+    And The user click on the back button on the top of the card
+    And The user choose the second tip card and click on it
+    And The user can read the tip and scroll down to see the arguments
+    And The user can wipe left to see the rest of the arguments
+    And The user back to home screen and choose the third card
+    And The user can read the tip and scroll down to read the cots

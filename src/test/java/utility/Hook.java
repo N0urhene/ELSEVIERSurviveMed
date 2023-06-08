@@ -4,6 +4,8 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.screenrecording.CanRecordScreen;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import io.cucumber.java.After;
@@ -22,6 +24,8 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.Base64;
 import java.util.concurrent.TimeUnit;
+
+import static java.time.Duration.ofSeconds;
 
 public class Hook {
     private static AndroidDriver driver;
@@ -67,9 +71,9 @@ public class Hook {
                 .perform();
     }
 
-    public static void swipeHorizontal(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"))));
+    public static void swipeHorizontal(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver, ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(element));
         Dimension screenSize = driver.manage().window().getSize();
         int screenWidth = screenSize.getWidth();
         int screenHeight = screenSize.getHeight();
@@ -82,6 +86,35 @@ public class Hook {
         touchAction.press(PointOption.point(startX, y))
                 .waitAction()
                 .moveTo(PointOption.point(endX, y))
+                .release()
+                .perform();
+    }
+
+    public static void longClick(WebElement element) {
+        TouchAction touchAction = new TouchAction(driver);
+
+        touchAction.longPress(LongPressOptions.longPressOptions()
+                        .withElement(ElementOption.element(element))
+                        .withDuration(ofSeconds(2)))  // Specify the duration of the long-press (in seconds)
+                .release()
+                .perform();
+    }
+
+    public static void dictionarySwipe (WebElement element) {
+
+        Dimension dimensions = element.getSize();
+        int startX = dimensions.getWidth() / 2;
+        int startY = dimensions.getHeight() / 2;
+
+        int endX = startX;
+        int endY = (int) (startY * 0.2); // Scroll up by 20% of the element's height
+
+        TouchAction touchAction = new TouchAction(driver);
+
+        touchAction.longPress(LongPressOptions.longPressOptions()
+                        .withElement(ElementOption.element(element, startX, startY)))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                .moveTo(PointOption.point(endX, endY))
                 .release()
                 .perform();
     }

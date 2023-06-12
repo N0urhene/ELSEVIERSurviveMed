@@ -1,4 +1,4 @@
-@appium
+@Before
 Feature: Login to the application
 
   Background:

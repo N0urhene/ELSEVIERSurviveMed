@@ -1,4 +1,4 @@
-@appium
+@Before
 Feature: Reset the password
 
   Background: Background:

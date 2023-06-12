@@ -30,22 +30,23 @@ import static java.time.Duration.ofSeconds;
 public class Hook {
     private static AndroidDriver driver;
 
-    @Before("@appium")
-    public void OpenSurviveMedApp() throws MalformedURLException, InterruptedException {
-        //System.out.println("INSIDE OPEN SERVICE APP");
+    @Before
+    public void OpenSurviveMedApp() throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium");
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13");
         cap.setCapability(MobileCapabilityType.DEVICE_NAME, "R58RC21A4TN");
-       // cap.setCapability("unicodeKeyboard", true);
-       // cap.setCapability("resetKeyboard", true);
         cap.setCapability(MobileCapabilityType.APP, "C:\\\\Users\\\\Nourhene\\\\Documents\\\\ElsevierSurviveMedUK_prod.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, cap);
-        //System.out.println("Hook line 41; driver " + driver);
         driver .manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         startVideoRecording();
+    }
+
+    public static AndroidDriver getDriver() {
+        System.out.println("get driver called inside hook " + driver);
+        return driver;
     }
 
     public static void doubleClick(AndroidDriver driver, WebElement element) {
@@ -125,27 +126,21 @@ public class Hook {
         driver.quit();
     }
 
-    private void startVideoRecording() {
+    public static void startVideoRecording() {
         ((CanRecordScreen) driver).startRecordingScreen();
     }
 
-    private void stopVideoRecording() {
-        String video = ((CanRecordScreen)driver).stopRecordingScreen();
+    public static void stopVideoRecording() {
+        String video = ((CanRecordScreen) driver).stopRecordingScreen();
         byte[] decodeVideo = Base64.getMimeDecoder().decode(video);
         try {
-        Path testVideoDir = Paths.get(System.getProperty("user.dir") + "/videos");
-        Files.createDirectories(testVideoDir);
-        Path testVideoFileLocation =
-                Paths.get(testVideoDir.toString(), String.format("%s-%d.%s", "test", System.currentTimeMillis(), "mp4"));
-        Files.write(testVideoFileLocation, decodeVideo);
+            Path testVideoDir = Paths.get(System.getProperty("user.dir") + "/videos");
+            Files.createDirectories(testVideoDir);
+            Path testVideoFileLocation =
+                    Paths.get(testVideoDir.toString(), String.format("%s-%d.%s", "test", System.currentTimeMillis(), "mp4"));
+            Files.write(testVideoFileLocation, decodeVideo);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-    public static AndroidDriver getDriver() {
-        System.out.println("get driver called inside hook " + driver);
-        return driver;
-    }
-
 }

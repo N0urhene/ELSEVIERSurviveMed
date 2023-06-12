@@ -77,43 +77,44 @@ public class signupSteps {
         Assert.assertTrue(driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"We're sorry, something went wrong when attempting to sign up.\")")).isDisplayed());
     }
 
-
     @And("The user enter a valid email address {string} and a valid password {string}")
     public void theUserEnterAValidPassword(String n, String b) {
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText")).sendKeys(n);
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View/android.widget.EditText")).sendKeys(b);
     }
 
-    @Then("The user should see a successful message")
-    public void theUserShouldSeeASuccessfulMessage() {
+    @And("The cursor has shifted to the next input field")
+    public void theCursorHasShiftedToTheNextInputField() {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View/android.widget.EditText")).click();
     }
 
-    @And("The user should receive a verification email")
-    public void theUserShouldReceiveAVerificationEmail() {
+    @And("The user enter his First Name")
+    public void theUserEnterHisFirstName() {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View/android.widget.EditText")).sendKeys("nourhene");
     }
 
-    @Given("The user is in his mailbox")
-    public void theUserIsInHisMailbox() {
+    @And("The user click on the Sign Up blue button")
+    public void theUserClickOnTheSignUpBlueButton() {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Button")).click();
     }
 
-    @When("The user click on the validation email received in his mailbox")
-    public void theUserClickOnTheValidationEmailReceivedInHisMailbox() {
+    @And("The cursor has shifted to the last field")
+    public void theCursorHasShiftedToTheLastField() {
+        driver.findElement(By.id("1-family_name")).click();
     }
 
-    @And("The user open the email")
-    public void theUserOpenTheEmail() {
+    @And("The user enter his Family Name")
+    public void theUserEnterHisFamilyName() {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[5]/android.view.View/android.widget.EditText")).sendKeys("soueid");
     }
 
-    @And("The user click on the blue button confirm my account")
-    public void theUserClickOnTheBlueButtonConfirmMyAccount() {
+    @And("The user should see a successful message and receive a verification email")
+    public void theUserShouldSeeASuccessfulMessageAndReceiveAVerificationEmail() {
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/img_validation_signin_ul")).isDisplayed());
     }
 
-    @And("The user should receive a welcome email")
-    public void theUserShouldReceiveAWelcomeEmail() {
+    @Then("The user click on the Login button to be redirected to the login webpage")
+    public void theUserClickOnTheLoginButtonToBeRedirectedToTheLoginWebpage() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_btn_signin_ul")).click();
     }
-
-    @And("The user should be redirected to the login web page")
-    public void theUserShouldBeRedirectedToTheLoginWebPage() {
-    }
-
 }

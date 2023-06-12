@@ -1,4 +1,4 @@
-@appium
+@Before
 Feature: Sign Up to the application
 
   Scenario: Register from the main interface
@@ -22,18 +22,20 @@ Feature: Sign Up to the application
     And The user receives an error messages under the fields with reddening of the field frame
     And The user enter in invalid email "nourhene.sd@gmail" and in the password field "nourHene1"
     And The user click on the Sign Up blue button in the bottom of the page
+    And The user click on the Sign Up blue button in the bottom of the page
+    And The cursor has shifted to the next input field
+    And The user enter his First Name
+    And The user click on the Sign Up blue button
+    And The cursor has shifted to the last field
+    And The user enter his Family Name
+    And The user click on the Sign Up blue button
     And The user receives a red error message
     And The user enter a valid email address "soueidnourhene@gmail.com" and a valid password "Nour1234"
+    And The user enter his First Name
+    And The user enter his Family Name
     And The user click on the Sign Up blue button in the bottom of the page
-    Then The user should see a successful message
-    And The user should receive a verification email
+    And The user should see a successful message and receive a verification email
+    Then The user click on the Login button to be redirected to the login webpage
 
 
-  Scenario: Activate account
-    Given The user is in his mailbox
-    When The user click on the validation email received in his mailbox
-    And The user open the email
-    And The user click on the blue button confirm my account
-    Then The user should see a successful message
-    And The user should receive a welcome email
-    And The user should be redirected to the login web page
+

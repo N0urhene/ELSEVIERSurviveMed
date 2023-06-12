@@ -1,4 +1,4 @@
-@appium @done
+@Before
 Feature: Discover Home screen items
 
   Background:

@@ -8,7 +8,6 @@ Feature: Email verification
     And The user read the email
     And The user click on the blue button confirm my account
     And The user should receive a successful message
-    And The user should receive a welcome email
     Then The user should be redirected to the login web page
 
   Scenario: Reset password email verification

@@ -12,10 +12,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
+import org.testng.Assert;
 import utility.Hook;
 
 public class verification_steps {
-    private AndroidDriver driver;
+    private AndroidDriver gmailDriver;
 
     @Given("The user is in his mailbox")
     public void theUserIsInHisMailbox() throws MalformedURLException {
@@ -24,24 +26,30 @@ public class verification_steps {
             cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
             cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13");
             cap.setCapability(MobileCapabilityType.DEVICE_NAME, "R58RC21A4TN");
-            cap.setCapability(MobileCapabilityType.APP, "C:\\\\Users\\\\Nourhene\\\\Documents\\\\com.tempmail.apk");
+            cap.setCapability(MobileCapabilityType.APP, "C:\\\\Users\\\\Nourhene\\\\Documents\\\\com.google.android.gm.apk");
             URL url = new URL("http://127.0.0.1:4723/wd/hub");
-            driver = new AndroidDriver(url, cap);
-            driver .manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        gmailDriver = new AndroidDriver(url, cap);
+        gmailDriver .manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             Hook.startVideoRecording();
+
+        gmailDriver.findElement(By.id("com.android.permissioncontroller:id/permission_allow_button")).click();
+        gmailDriver.findElement(By.id("com.google.android.gm:id/dismiss_button")).click();
     }
 
     @When("The user click to open the validation email received in his mailbox")
     public void theUserClickToOpenTheValidationEmailReceivedInHisMailbox() {
-        driver.findElement(By.id("com.tempmail:id/llItemMain")).click();
+        gmailDriver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.view.ViewGroup[2]")).click();
     }
 
     @And("The user read the email")
     public void theUserReadTheEmail() {
+        Assert.assertTrue(gmailDriver.findElement(By.xpath("//android.view.View[@content-desc=\"Elsevier\"]/android.widget.Image")).isDisplayed());
     }
 
     @And("The user click on the blue button confirm my account")
-    public void theUserClickOnTheBlueButtonConfirmMyAccount() {
+    public void theUserClickOnTheBlueButtonConfirmMyAccount() throws InterruptedException {
+        Thread.sleep(2000);
+        gmailDriver.findElement(By.xpath("//android.view.View[@content-desc=\"Confirm my account\"]")).click();
     }
 
     @And("The user should receive a successful message")

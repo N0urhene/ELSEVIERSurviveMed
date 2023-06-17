@@ -22,7 +22,6 @@ Feature: Sign Up to the application
     And The user receives an error messages under the fields with reddening of the field frame
     And The user enter in invalid email "nourhene.sd@gmail" and in the password field "nourHene1"
     And The user click on the Sign Up blue button in the bottom of the page
-    And The user click on the Sign Up blue button in the bottom of the page
     And The cursor has shifted to the next input field
     And The user enter his First Name
     And The user click on the Sign Up blue button
@@ -34,8 +33,14 @@ Feature: Sign Up to the application
     And The user enter his First Name
     And The user enter his Family Name
     And The user click on the Sign Up blue button in the bottom of the page
+    And The user receives an error message The user already exists
+    And The user enter a valid email address "test.survivemed@gmail.com" and a valid password "Test0000"
+    And The user enter his First Name
+    And The user enter his Family Name
+    And The user click on the Sign Up blue button in the bottom of the page
     And The user should see a successful message and receive a verification email
-    Then The user click on the Login button to be redirected to the login webpage
-
-
+    And The user click on the Login button to be redirected to the login webpage
+    And The user enter his credentials to log in to the application
+    And The user click on the Sign Up blue button in the bottom of the page
+    Then The user is redirected to the success message to verify his email
 

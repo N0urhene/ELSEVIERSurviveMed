@@ -38,3 +38,5 @@ build/
 .DS_Store
 *.json
 *.mp4
+allure-report/data/categories.csv
+allure-report/data/behaviors.csv

@@ -1,12 +1,13 @@
 package Runners;
 
-import features.steps.GuestSteps;
+import org.testng.annotations.Test;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        features ="src/test/java/features/sign_up.feature",
-        glue = {"features/steps", "utility"}
+        features ="src/test/java/features",
+        glue = {"features/steps", "utility"},
+        tags = "@Before"
 )
 public class Runner extends AbstractTestNGCucumberTests {
 }

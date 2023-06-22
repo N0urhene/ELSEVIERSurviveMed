@@ -8,13 +8,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import utility.Hook;
 
 public class GuestSteps {
     private AndroidDriver driver;
     public GuestSteps(){
         this.driver = Hook.getDriver();
-        System.out.println("driver taken from hook" + driver);
+        //System.out.println("driver taken from hook" + driver);
     }
     @BeforeClass
     public void setup(){

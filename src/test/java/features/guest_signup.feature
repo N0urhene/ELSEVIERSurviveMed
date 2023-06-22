@@ -1,4 +1,4 @@
-@appium @done
+@Before
 Feature: Guest sign up to the application
 
   Scenario: Sign up from the main interface

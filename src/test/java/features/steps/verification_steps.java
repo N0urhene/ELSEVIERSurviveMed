@@ -96,15 +96,15 @@ public class verification_steps {
     public void theUserEnterANewValidPassword() {
     }
 
-    @And("The cusor shifted to the next field")
-    public void theCusorShiftedToTheNextField() {
+    @And("The cursor shifted to the next field")
+    public void theCursorShiftedToTheNextField() {
     }
 
     @And("The user re-enter the password to confirm it")
     public void theUserReEnterThePasswordToConfirmIt() {
     }
 
-    @Then("The user should receive a successfull message")
-    public void theUserShouldReceiveASuccessfullMessage() {
+    @Then("The user should receive a successful messages")
+    public void theUserShouldReceiveASuccessfulMessages() {
     }
 }

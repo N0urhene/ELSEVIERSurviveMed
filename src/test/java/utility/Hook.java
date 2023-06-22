@@ -10,12 +10,23 @@ import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.apache.commons.mail.util.MimeMessageParser;
+import org.apache.hc.client5.http.classic.methods.HttpGet;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.mail.internet.MimeMessage;
+import java.io.ByteArrayInputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -40,7 +51,7 @@ public class Hook {
         cap.setCapability(MobileCapabilityType.APP, "C:\\\\Users\\\\Nourhene\\\\Documents\\\\ElsevierSurviveMedUK_prod.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, cap);
-        driver .manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         startVideoRecording();
     }
 
@@ -72,7 +83,7 @@ public class Hook {
                 .perform();
     }
 
-    public static void swipeHorizontal(WebElement element){
+    public static void swipeHorizontal(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(element));
         Dimension screenSize = driver.manage().window().getSize();
@@ -101,7 +112,7 @@ public class Hook {
                 .perform();
     }
 
-    public static void dictionarySwipe (WebElement element) {
+    public static void dictionarySwipe(WebElement element) {
 
         Dimension dimensions = element.getSize();
         int startX = dimensions.getWidth() / 2;
@@ -121,7 +132,7 @@ public class Hook {
     }
 
     @After
-    public void tearDown()  {
+    public void tearDown() {
         stopVideoRecording();
         driver.quit();
     }
@@ -143,4 +154,5 @@ public class Hook {
             e.printStackTrace();
         }
     }
+
 }

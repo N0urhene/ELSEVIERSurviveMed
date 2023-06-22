@@ -1,4 +1,4 @@
-@Before
+@Before @Test
 Feature: Discover Home screen items
 
   Background:
@@ -12,6 +12,7 @@ Feature: Discover Home screen items
     And The user click on the Continue button
     And The user should see the home screen
 
+  @Test(priority=1)
   Scenario: Home screen first item: ANATOMY THE BARE BONES
     And The user open the Anatomy item
     And The user choose the first element of the screen list
@@ -29,6 +30,7 @@ Feature: Discover Home screen items
     And The user click on the previous button to back to the home page
     Then The user should see the home screen
 
+  @Test(priority=2)
   Scenario: Home screen second item: ANATOMY FLASHCARDS
     And The user open the flashcards item
     And The user click on the first element of the list
@@ -40,12 +42,14 @@ Feature: Discover Home screen items
     And The user click on the exit button in the top
     Then The user click on the step-back button to back to the home screen
 
+  @Test(priority=3)
   Scenario: Home screen third item: LABORATORY VALUES
     And The user click to open the item
     And a pop up message appear
     And The user click on Not now
     Then The user should see the home screen
 
+  @Test(priority=4)
   Scenario: Home screen forth item: MEDICAL DICTIONARY
     And The user click on the item
     And The user scroll down to see all the information of the letter A
@@ -58,6 +62,7 @@ Feature: Discover Home screen items
     And The user should see a message Added to favorites
     Then The user click on the top button to back to home screen
 
+  @Test(priority=5)
   Scenario: Home screen fifth item: GLOSSARIES BY SUBJECT
     And The user click to open the glossaries by subject item
     And The user click on the Anatomy element
@@ -68,12 +73,14 @@ Feature: Discover Home screen items
     And The user click to back to the list
     Then The user click on the top button to back to home screen
 
+  @Test(priority=6)
   Scenario: Home screen ESSENTIAL LATIN item
     And The user click to open the essential latin item
     And The user scroll down to see the results
     And The user click on the third information to add it to the favorites
     Then The user click back to home screen
 
+  @Test(priority=7)
   Scenario: Home screen SURVIVAL TIPS item
     And The user click to open the survival tips item
     And The user should see a list of tips
@@ -88,6 +95,7 @@ Feature: Discover Home screen items
     And The user click on the back button on the top of the card
     Then The user click back to home screen
 
+  @Test(priority=8)
   Scenario: Home screen TEST YOURSELF item
     And The user click to open test yourself item
     And a pop up message appear

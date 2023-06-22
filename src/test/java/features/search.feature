@@ -1,4 +1,4 @@
-@appium
+@Before
 Feature: Search
 
   Background:

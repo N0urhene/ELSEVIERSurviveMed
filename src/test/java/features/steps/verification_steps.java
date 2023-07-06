@@ -1,5 +1,6 @@
 package features.steps;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.cucumber.java.en.And;
@@ -17,7 +18,7 @@ import org.testng.Assert;
 import utility.Hook;
 
 public class verification_steps {
-    private AndroidDriver gmailDriver;
+    private AppiumDriver gmailDriver;
 
     @Given("The user is in his mailbox")
     public void theUserIsInHisMailbox() throws MalformedURLException {
@@ -26,19 +27,19 @@ public class verification_steps {
             cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
             cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13");
             cap.setCapability(MobileCapabilityType.DEVICE_NAME, "R58RC21A4TN");
-            cap.setCapability(MobileCapabilityType.APP, "C:\\\\Users\\\\Nourhene\\\\Documents\\\\com.google.android.gm.apk");
-            URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        gmailDriver = new AndroidDriver(url, cap);
+            cap.setCapability(MobileCapabilityType.APP, "C:\\\\Users\\\\Nourhene\\\\Documents\\\\com.tempmail.pro.apk");
+            //URL url = new URL("http://127.0.0.1:4723/wd/hub");
+        gmailDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), cap);
         gmailDriver .manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             Hook.startVideoRecording();
 
-        gmailDriver.findElement(By.id("com.android.permissioncontroller:id/permission_allow_button")).click();
-        gmailDriver.findElement(By.id("com.google.android.gm:id/dismiss_button")).click();
+        //gmailDriver.findElement(By.id("com.android.permissioncontroller:id/permission_allow_button")).click();
+       // gmailDriver.findElement(By.id("com.google.android.gm:id/dismiss_button")).click();
     }
 
     @When("The user click to open the validation email received in his mailbox")
     public void theUserClickToOpenTheValidationEmailReceivedInHisMailbox() {
-        gmailDriver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.view.ViewGroup[2]")).click();
+        gmailDriver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.view.ViewGroup[1]")).click();
     }
 
     @And("The user read the email")
@@ -66,10 +67,12 @@ public class verification_steps {
 
     @When("The user click to open the received email")
     public void theUserClickToOpenTheReceivedEmail() {
+        gmailDriver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.FrameLayout[2]/android.widget.ScrollView/android.view.ViewGroup/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.view.ViewGroup[1]")).click();
     }
 
     @And("The user click on the Set password blue button")
     public void theUserClickOnTheSetPasswordBlueButton() {
+        gmailDriver.findElement(By.xpath("//android.view.View[@content-desc=\"Set password\"]")).click();
     }
 
     @And("The user is redirected to the Set password web page")

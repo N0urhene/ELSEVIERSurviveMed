@@ -11,6 +11,7 @@ import utility.Hook;
 
 public class loginSteps {
     private AndroidDriver driver;
+
     public loginSteps() {
 
         this.driver = Hook.getDriver();
@@ -105,13 +106,13 @@ public class loginSteps {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/constraint_layout_content")).click();
     }
 
-    @And("The user click on the second element i go to school in")
+    @And("The user click on the second element I go to school in")
     public void theUserClickOnTheSecondElementIGoToSchoolIn() {
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")).click();
     }
 
-    @And("The user scroll to choose his country")
-    public void theUserScrollToChooseHisCountry() {
+    @And("The user scroll to choose his country or enter the name on the search bar")
+    public void theUserScrollToChooseHisCountryOrEnterTheNameOnTheSearchBar() {
         Hook.scroll();
         driver.findElement(By.id("android:id/search_src_text")).click();
         driver.findElement(By.id("android:id/search_src_text")).sendKeys("tunisia");
@@ -120,12 +121,14 @@ public class loginSteps {
 
     @And("The user click on the next element")
     public void theUserClickOnTheNextElement() {
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]")).click();;
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]")).click();
+        ;
     }
 
     @And("The user choose his university")
     public void theUserChooseHisUniversity() {
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")).click();;
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")).click();
+        ;
     }
 
     @And("The user click on the last element My year of study is")
@@ -149,6 +152,16 @@ public class loginSteps {
     @Then("The user should be logged in to the home screen")
     public void theUserShouldBeLoggedInToTheHomeScreen() {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_next_personalisation")).click();
+    }
+
+    @And("The user click on the third choice just curious")
+    public void theUserClickOnTheThirdChoiceJustCurious() {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[3]")).click();
+    }
+
+    @And("The user click on the second choice a medical Professional")
+    public void theUserClickOnTheSecondChoiceAMedicalProfessional() {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")).click();
     }
 }
 

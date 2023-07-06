@@ -7,20 +7,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 import utility.Hook;
 
 public class GuestSteps {
     private AndroidDriver driver;
     public GuestSteps(){
         this.driver = Hook.getDriver();
-        //System.out.println("driver taken from hook" + driver);
-    }
-    @BeforeClass
-    public void setup(){
-        this.driver = Hook.getDriver();
-        System.out.println("driver taken from hook" + driver);
     }
 
     @Given("The user is on the main screen")
@@ -72,7 +64,7 @@ public class GuestSteps {
     }
 
     @And("The user click on the Continue button")
-    public void theUserClickOnTheContinueButton() throws InterruptedException {
+    public void theUserClickOnTheContinueButton() {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/text_continue_scroll")).click();
         //Thread.sleep(3000);
     }
@@ -81,6 +73,6 @@ public class GuestSteps {
     public void theUserShouldSeeTheHomeScreen() throws InterruptedException {
         Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/imageView2")).isDisplayed());
         Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_tab_bar")).isDisplayed());
-        Thread.sleep(3000);
+        Thread.sleep(2000);
     }
 }

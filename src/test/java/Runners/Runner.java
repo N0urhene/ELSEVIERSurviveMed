@@ -6,8 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
         features ="src/test/java/features",
-        glue = {"features/steps", "utility"},
-        tags = "@Before"
+        glue = {"features/steps", "utility"}
 )
 public class Runner extends AbstractTestNGCucumberTests {
 }

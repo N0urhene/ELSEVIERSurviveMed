@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class signupSteps {
     private AndroidDriver driver;
+
     public signupSteps() {
         this.driver = Hook.getDriver();
     }
@@ -113,25 +114,9 @@ public class signupSteps {
         Assert.assertTrue(driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiSelector().text(\"The user already exists.\")")).isDisplayed());
     }
 
-    @And("The user should see a successful message and receive a verification email")
+    @Then("The user should see a successful message and receive a verification email")
     public void theUserShouldSeeASuccessfulMessageAndReceiveAVerificationEmail() {
         Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/img_validation_signin_ul")).isDisplayed());
     }
 
-    @Then("The user click on the Login button to be redirected to the login webpage")
-    public void theUserClickOnTheLoginButtonToBeRedirectedToTheLoginWebpage() {
-        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_btn_signin_ul")).click();
-    }
-
-    @And("The user enter his credentials to log in to the application")
-    public void theUserEnterHisCredentialsToLogInToTheApplication() {
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[2]/android.view.View[1]/android.widget.EditText")).sendKeys("test.survivemed@gmail.com");
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View[1]/android.widget.EditText")).sendKeys("Test0000");
-    }
-
-
-    @Then("The user is redirected to the success message to verify his email")
-    public void theUserIsRedirectedToTheSuccessMessageToVerifyHisEmail() {
-        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/img_validation_signin_ul")).isDisplayed());
-    }
 }

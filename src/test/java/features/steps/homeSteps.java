@@ -9,24 +9,23 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 import utility.Hook;
 
 public class homeSteps {
     private AndroidDriver driver;
-    public homeSteps(){
+
+    public homeSteps() {
         this.driver = Hook.getDriver();
     }
 
     @And("The user open the Anatomy item")
-    public void theUserOpenTheAnatomyItem() throws InterruptedException {
+    public void theUserOpenTheAnatomyItem() {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/home_nav")).click();
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/constraint_layout_home_item")).click();
-        Thread.sleep(3000);
     }
 
     @And("The user choose the first element of the screen list")
-    public void theUserChooseTheFirstElementOfTheScreenList() throws InterruptedException {
+    public void theUserChooseTheFirstElementOfTheScreenList() {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/constraint_layout_content")).click();
     }
 
@@ -47,13 +46,13 @@ public class homeSteps {
     }
 
     @And("The user double click the figure to zoom_in")
-    public void theUserDoubleClickTheFigureToZoom_in() throws InterruptedException {
+    public void theUserDoubleClickTheFigureToZoom_in() {
         WebElement image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
         Hook.doubleClick(driver, image);
     }
 
     @And("The user double click the figure to zoom_out")
-    public void theUserDoubleClickTheFigureToZoom_out() throws InterruptedException {
+    public void theUserDoubleClickTheFigureToZoom_out() {
         WebElement image = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
         Hook.doubleClick(driver, image);
     }
@@ -77,14 +76,14 @@ public class homeSteps {
     }
 
     @And("The user double click the table to zoom_in")
-    public void theUserDoubleClickTheTableToZoom_in() throws InterruptedException {
-        WebElement table =  driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
+    public void theUserDoubleClickTheTableToZoom_in() {
+        WebElement table = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
         Hook.doubleClick(driver, table);
     }
 
     @And("The user double click the table to zoom_out")
-    public void theUserDoubleClickTheTableToZoom_out() throws InterruptedException {
-        WebElement table =  driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
+    public void theUserDoubleClickTheTableToZoom_out() {
+        WebElement table = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/touch_image_full_screen"));
         Hook.doubleClick(driver, table);
     }
 
@@ -164,16 +163,15 @@ public class homeSteps {
 
     @Then("The user click on the step-back button to back to the home screen")
     public void theUserClickOnTheStepBackButtonToBackToTheHomeScreen() {
-        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_back_toolbar")).click();
         Hook.scroll();
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_back_toolbar")).click();
     }
 
     @And("The user click to open the item")
     public void theUserClickToOpenTheItem() {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/home_nav")).click();
         //Hook.scroll();
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"+".scrollIntoView(new UiSelector().textContains(\"Labaratory values can vary. Please double-check with your local laboratory\"))"));
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup")).click();
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Labaratory values can vary. Please double-check with your local laboratory\"))")).click();
     }
 
     @And("a pop up message appear")
@@ -189,8 +187,7 @@ public class homeSteps {
     @And("The user click on the item")
     public void theUserClickOnTheItem() {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/home_nav")).click();
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))"+".scrollIntoView(new UiSelector().textContains(\"Remove your fear, search from 12,000+ med terms\"))"));
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup")).click();
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Remove your fear, search from 12,000+ med terms\"))")).click();
     }
 
     @And("The user scroll down to see all the information of the letter A")
@@ -249,11 +246,10 @@ public class homeSteps {
 
     @And("The user click to open the glossaries by subject item")
     public void theUserClickToOpenTheGlossariesBySubjectItem() {
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Quick reference lists of need to know terms\"))"));
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup")).click();
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Quick reference lists of need to know terms\"))")).click();
     }
 
-        @And("The user click on the Anatomy element")
+    @And("The user click on the Anatomy element")
     public void theUserClickOnTheAnatomyElement() {
         driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")).click();
     }
@@ -293,8 +289,7 @@ public class homeSteps {
 
     @And("The user click to open the essential latin item")
     public void theUserClickToOpenTheEssentialLatinItem() throws InterruptedException {
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Essential Latin\"))"));
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup")).click();
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Essential Latin\"))")).click();
         Thread.sleep(2000);
     }
 
@@ -316,8 +311,7 @@ public class homeSteps {
 
     @And("The user click to open the survival tips item")
     public void theUserClickToOpenTheSurvivalTipsItem() {
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Invaluable advice, hints & tips from med students\"))"));
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup")).click();
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Invaluable advice, hints & tips from med students\"))")).click();
     }
 
     @And("The user should see a list of tips")
@@ -363,8 +357,7 @@ public class homeSteps {
     public void theUserBackToHomeScreenAndChooseTheThirdCard() throws InterruptedException {
         driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/btn_back_surviving_content")).click();
         Thread.sleep(1000);
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Maintiaining relationships help.\"))"));
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.view.ViewGroup")).click();
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Maintiaining relationships help.\"))")).click();
     }
 
     @And("The user can read the tip and scroll down to read the cots")
@@ -375,7 +368,118 @@ public class homeSteps {
 
     @And("The user click to open test yourself item")
     public void theUserClickToOpenTestYourselfItem() {
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Questions and answers.Test your knowledge!\"))"));
-        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.view.ViewGroup")).click();
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().textContains(\"Questions and answers.Test your knowledge!\"))")).click();
+    }
+
+    @And("The user scroll down to see all the alphabetic laboratory values")
+    public void theUserScrollDownToSeeAllTheAlphabeticLaboratoryValues() {
+        Hook.scroll();
+    }
+
+    @And("The user swipe the alphabetic list")
+    public void theUserSwipeTheAlphabeticList() {
+        Hook.dictionarySwipe(driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[3]/android.view.ViewGroup/android.widget.FrameLayout/android.widget.RelativeLayout/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[4]/android.widget.TextView")));
+    }
+
+    @And("The user click on an value of the list to see the details")
+    public void theUserClickOnAnValueOfTheListToSeeTheDetails() {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[3]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.RelativeLayout")).click();
+    }
+
+    @And("The user long-click on the value")
+    public void theUserLongClickOnTheValue() {
+        Hook.longClick(driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[3]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.RelativeLayout")));
+    }
+
+    @And("The user add the value to his favorite list")
+    public void theUserAddTheValueToHisFavoriteList() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/bottom_sheet_favorite_add_btn")).click();
+    }
+
+    @And("The user switch to the Category option")
+    public void theUserSwitchToTheCategoryOption() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/second_btn")).click();
+    }
+
+    @And("The user swipe the categories list")
+    public void theUserSwipeTheCategoriesList() {
+        Hook.swipeHorizontal(driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[3]/android.view.ViewGroup/android.widget.FrameLayout/android.widget.RelativeLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView")));
+    }
+
+    @And("The user click a value to see the details")
+    public void theUserClickAValueToSeeTheDetails() {
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[3]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.RelativeLayout")).click();
+    }
+
+    @And("The user long-click the value to add it to his favorite list")
+    public void theUserLongClickTheValueToAddItToHisFavoriteList() {
+        Hook.longClick(driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[3]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.RelativeLayout")));
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/bottom_sheet_favorite_add_btn")).click();
+    }
+
+    @And("The user click on the information icon")
+    public void theUserClickOnTheInformationIcon() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_info")).click();
+    }
+
+    @And("A popup appears presenting the Reference of the information")
+    public void aPopupAppearsPresentingTheReferenceOfTheInformation() {
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/reference_text")).isDisplayed());
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/reference_picture")).isDisplayed());
+    }
+
+    @And("The user click the exit icon")
+    public void theUserClickTheExitIcon() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_close_reference")).click();
+    }
+
+    @And("The user click to back to home screen")
+    public void theUserClickToBackToHomeScreen() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_back")).click();
+    }
+
+    @And("The user click the Drug Calculations section")
+    public void theUserClickTheDrugCalculationsSection() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/constraint_layout_content")).click();
+    }
+
+    @And("The user find the question card and tap on it to see the answer")
+    public void theUserFindTheQuestionCardAndTapOnItToSeeTheAnswer() {
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/text_category_title")).isDisplayed());
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/content")).click();
+    }
+
+    @And("The user swipe left to see the rest of the questions")
+    public void theUserSwipeLeftToSeeTheRestOfTheQuestions() {
+        Hook.swipeHorizontal(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/content")));
+        Hook.swipeHorizontal(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/content")));
+        Hook.swipeHorizontal(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/content")));
+        Hook.swipeHorizontal(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/content")));
+    }
+
+    @And("The user click on the exit button")
+    public void theUserClickOnTheExitButton() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_close_interactive_content")).click();
+    }
+
+    @And("The user click the icon to back to home screen")
+    public void theUserClickTheIconToBackToHomeScreen() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/icon_back_question")).click();
+    }
+
+    @Given("The user scroll to the bottom of the home screen")
+    public void theUserScrollToTheBottomOfTheHomeScreen() {
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0))" + ".scrollIntoView(new UiSelector().resourceId(\"com.elsevier.education.SurviveMedApp:id/register_button\"))"));
+    }
+
+    @When("The user click on the orange Register button")
+    public void theUserClickOnTheOrangeRegisterButton() {
+        driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/register_button")).click();
+    }
+
+    @Then("The user is redirected to the register webpage")
+    public void theUserIsRedirectedToTheRegisterWebpage() {
+        Assert.assertTrue(driver.findElement(By.id("com.android.chrome:id/url_bar")).isDisplayed());
     }
 }
+

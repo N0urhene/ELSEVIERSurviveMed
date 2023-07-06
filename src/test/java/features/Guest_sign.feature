@@ -1,4 +1,3 @@
-@Before
 Feature: Sign Up to the application
 
   Scenario: Register from the main interface
@@ -34,13 +33,8 @@ Feature: Sign Up to the application
     And The user enter his Family Name
     And The user click on the Sign Up blue button in the bottom of the page
     And The user receives an error message The user already exists
-    And The user enter a valid email address "test.survivemed@gmail.com" and a valid password "Test0000"
+    And The user enter a valid email address "bevom61027@chatxat.com" and a valid password "Test1110"
     And The user enter his First Name
     And The user enter his Family Name
     And The user click on the Sign Up blue button in the bottom of the page
-    And The user should see a successful message and receive a verification email
-    And The user click on the Login button to be redirected to the login webpage
-    And The user enter his credentials to log in to the application
-    And The user click on the Sign Up blue button in the bottom of the page
-    Then The user is redirected to the success message to verify his email
-
+    Then The user should see a successful message and receive a verification email

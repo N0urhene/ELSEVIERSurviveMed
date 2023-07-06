@@ -50,4 +50,9 @@ public class manageFavSteps {
     public void theItemIsDeleted() {
         Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/title_favorites")).isDisplayed());
     }
+
+    @Then("the screen is blank")
+    public void theScreenIsBlank() {
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/textView")).isDisplayed());
+    }
 }

@@ -48,11 +48,14 @@ public class searchSteps {
                 .sendKeys("medical");
     }
 
-    @Then("The user should see the search result")
-    public void theUserShouldSeeTheSearchResult() {
-        boolean searchResult = driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_search_terms")).isDisplayed();
-        Assert.assertTrue(searchResult);
+    @And("The user see the search result and click on it")
+    public void theUserSeeTheSearchResultAndClickOnIt() {
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/layout_search_terms")).isDisplayed());
+        driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]")).click();
     }
 
-
+    @Then("The user is redirected to the information section")
+    public void theUserIsRedirectedToTheInformationSection() {
+        Assert.assertTrue(driver.findElement(By.id("com.elsevier.education.SurviveMedApp:id/edit_text_search_home")).isDisplayed());
+    }
 }
